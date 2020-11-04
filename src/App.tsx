@@ -46,25 +46,35 @@ function App() {
     ]
   });
 
+ 
+  //-----------delete task from Todo List--------
 function removeTask(taskID: string, todoListsID: string) {
-  debugger
     const todoList = tasks[todoListsID]
     tasks[todoListsID] = todoList.filter(t => t.id !== taskID)
     setTasks({...tasks})
   }
+
+
+//----------adding new task to Todo List
 function addTask(newTaskTitle: string, todoListsID: string) {
     const newTask: TaskType = { id: v1(), title: newTaskTitle, isDone: false };
     const todoList = tasks[todoListsID]
     tasks[todoListsID]= [newTask, ...todoList]
     setTasks({...tasks})
   }
-function changeFilter(value: FilterValuesType, todoListsID: string) {
+
+
+//-------------Change Filter in Todo List---------------------
+  function changeFilter(value: FilterValuesType, todoListsID: string) {
     const todoList = todoLists.find((tl) => tl.id === todoListsID);
     if (todoList) {
       todoList.filter = value;
       setTodoLists([...todoLists]);
     }
   }
+
+
+  //-------------Change Status in Todo List-----------------
 function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
     const todoList = tasks[todoListsID]
     let newTodoList = todoList.map((task) => {
@@ -76,6 +86,9 @@ function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
     tasks[todoListsID] = newTodoList
     setTasks({...tasks}) 
   }
+
+
+  //---------------change Task Title------------------
 function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: string) {
     const todoList = tasks[todoListsID]
     let newTodoList = todoList.map((task) => {
@@ -88,11 +101,15 @@ function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: strin
     setTasks({...tasks}) 
   }
 
+  
+//---------remove Todo List-----------------
   function removeTodoList (todoListsID: string) {
-    debugger
-    todoLists.filter(tl => tl.id !== todoListsID)
-    delete tasks[todoListsID]
+    let todoList = todoLists.filter(tl => tl.id !== todoListsID)
+    setTodoLists(todoList)
   }
+
+
+//------------Add New Todo List --------------
   const addTodoList = (title: string) => {
     const newTodoListID = v1()
     const newTodoList: TodoListType = {
@@ -103,6 +120,9 @@ function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: strin
     setTodoLists([newTodoList, ...todoLists])
     setTasks({...tasks,[newTodoListID]: []})
 }
+
+
+//-----------Change Title in Todo List-----------------------------
 const changeTodoListTitle = (todoListsID: string, title: string) => {
   const todoList = todoLists.find(tl => tl.id === todoListsID)
   if(todoList) {
@@ -110,6 +130,8 @@ const changeTodoListTitle = (todoListsID: string, title: string) => {
     setTodoLists([...todoLists])
   }
 }
+
+
   return (
     <div className="App">
       <AppBar position="static">

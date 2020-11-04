@@ -36,7 +36,6 @@ type PropsType = {
 export function TodoList(props: PropsType) {
         
     let tasks = props.tasks.map(task => {
-        debugger
     const changeStatus = (e: ChangeEvent<HTMLInputElement>) => {props.changeStatus(task.id, e.currentTarget.checked, props.id)}
     const changeTitle = (editedTitle: string) => {props.changeTaskTitle(task.id, editedTitle, props.id)}
         return (
@@ -54,9 +53,9 @@ export function TodoList(props: PropsType) {
     });
     
     const removeTodoList = () => {props.removeTodoList(props.id)}
-    const onSetAllFilterClick = () => {props.changeFilter('all', props.id)}
-    const onSetActiveFilterClick = () => {props.changeFilter('active', props.id)}
-    const onSetCompletedFilterClick = () => {props.changeFilter('completed', props.id)}
+    const onSetAllFilterClick = () => {props.changeFilter("all", props.id)}
+    const onSetActiveFilterClick = () => {props.changeFilter("active", props.id)}
+    const onSetCompletedFilterClick = () => { props.changeFilter('completed', props.id)}
     const addTask = (title: string) => {
         props.addTask(title, props.id)
     }
