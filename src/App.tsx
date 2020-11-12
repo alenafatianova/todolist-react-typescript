@@ -46,14 +46,12 @@ function App() {
     ]
   });
 
- 
-  //-----------delete task from Todo List--------
+//-----------delete task from Todo List--------
 function removeTask(taskID: string, todoListsID: string) {
     const todoList = tasks[todoListsID]
     tasks[todoListsID] = todoList.filter(t => t.id !== taskID)
     setTasks({...tasks})
   }
-
 
 //----------adding new task to Todo List
 function addTask(newTaskTitle: string, todoListsID: string) {
@@ -63,7 +61,6 @@ function addTask(newTaskTitle: string, todoListsID: string) {
     setTasks({...tasks})
   }
 
-
 //-------------Change Filter in Todo List---------------------
   function changeFilter(value: FilterValuesType, todoListsID: string) {
     const todoList = todoLists.find((tl) => tl.id === todoListsID);
@@ -72,7 +69,6 @@ function addTask(newTaskTitle: string, todoListsID: string) {
       setTodoLists([...todoLists]);
     }
   }
-
 
   //-------------Change Status in Todo List-----------------
 function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
