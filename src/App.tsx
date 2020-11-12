@@ -53,7 +53,7 @@ function removeTask(taskID: string, todoListsID: string) {
     setTasks({...tasks})
   }
 
-//----------adding new task to Todo List
+//----------adding new task to Todo List----------------------
 function addTask(newTaskTitle: string, todoListsID: string) {
     const newTask: TaskType = { id: v1(), title: newTaskTitle, isDone: false };
     const todoList = tasks[todoListsID]
@@ -83,8 +83,7 @@ function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
     setTasks({...tasks}) 
   }
 
-
-  //---------------change Task Title------------------
+//---------------change Task Title------------------
 function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: string) {
     const todoList = tasks[todoListsID]
     let newTodoList = todoList.map((task) => {
