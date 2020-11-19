@@ -21,7 +21,7 @@ export const userReducer = (user: StateType, action: ActionType) => {
         case 'CHANGE_NAME': 
             return {...user, name: action.name}
         default: 
-            throw error('Error!');
+           return user;
         
     }
     

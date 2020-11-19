@@ -5,9 +5,8 @@ import {combineReducers, createStore} from 'redux'
 //---------задаем структуру нашего компонента-------
 const rootReducer = combineReducers({
     tasks: tasksReducer,
-    todoList: todoListReducer
+    todoLists: todoListReducer
 })
-
 //----------создаем store-------------
 export const store = createStore(rootReducer)
 //---------определяем автоматом тип всего объекта----------------------------
