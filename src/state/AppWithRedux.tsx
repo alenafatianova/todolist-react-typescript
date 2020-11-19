@@ -17,7 +17,7 @@ import { addTaskAC, removeTaskAC, tasksReducer, changeTaskStatusAC, changeTaskTi
 
 export type FilterValuesType = "all" | "active" | "completed";
 
-export function  AppWithReducers() {
+export function AppWithRedux() {
  
   const todoListsID1 = v1();
   const todoListsID2 = v1();
