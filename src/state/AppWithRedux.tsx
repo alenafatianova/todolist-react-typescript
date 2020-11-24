@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React, { useReducer} from "react";
+import {useDispatch} from 'react-redux'
 import { v1 } from "uuid";
 import { AddItemForm} from "../components/TodoList/AddItemForm";
 import "../App.css";
@@ -15,8 +16,10 @@ export function AppWithRedux() {
   const todoListsID1 = v1();
   const todoListsID2 = v1();
 
+  const dispatch = useDispatch();
+
   const [todoLists, dispatchToTodoList] = useReducer(todoListReducer, [
-      { id: todoListsID1, title: "What to buy", filter: "all" },
+    { id: todoListsID1, title: "What to buy", filter: "all" },
     { id: todoListsID2 , title: "What to learn", filter: "active" }
 ])
   
