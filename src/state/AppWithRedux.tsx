@@ -25,28 +25,7 @@ export function AppWithRedux() {
   const dispatch = useDispatch();
   const todoLists = useSelector<AppRootStateType, Array<TodoListType>>(state => state.todoLists);
   const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
-
-  const [todoLists] = useReducer(todoListReducer, [
-    { id: todoListsID1, title: "What to buy", filter: "all" },
-    { id: todoListsID2 , title: "What to learn", filter: "active" }
-])
   
-  const [tasks] = useReducer(tasksReducer, {
-    [todoListsID1]: [
-        { id: v1(), title: "HTML", isDone: true },
-        { id: v1(), title: "CSS", isDone: true },
-        { id: v1(), title: "JS", isDone: false },
-        { id: v1(), title: "Redux", isDone: false },
-        { id: v1(), title: "Angular", isDone: true }
-      ], 
-      [todoListsID2]: [
-        { id: v1(), title: "milk", isDone: false },
-        { id: v1(), title: "cat's food", isDone: true },
-        { id: v1(), title: "tea/coffee", isDone: false },
-        { id: v1(), title: "fruits", isDone: true },
-        { id: v1(), title: "cheese", isDone: false },
-      ]
-  });
 //-----------delete task from Todo List--------
 function removeTask(taskID: string, todoListsID: string) {
     const action = removeTaskAC(taskID, todoListsID)
