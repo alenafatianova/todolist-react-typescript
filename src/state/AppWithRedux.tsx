@@ -42,42 +42,42 @@ export function AppWithRedux() {
 //-----------delete task from Todo List--------
 function removeTask(taskID: string, todoListsID: string) {
     const action = removeTaskAC(taskID, todoListsID)
-    dispatchToTasks(action);
+    dispatch(action);
 }
 //----------adding new task to Todo List----------------------
 function addTask(newTaskTitle: string, todoListsID: string) {
   const action = addTaskAC(newTaskTitle, todoListsID)
-  dispatchToTasks(action)
+  dispatch(action)
 }
 //-------------Change Filter in Todo List---------------------
   function changeFilter(filter: FilterValuesType, todoListsID: string) {
     const action = changeTodoListFilterAC(filter, todoListsID)
-    dispatchToTodoList(action)
+    dispatch(action)
   }
 //-------------Change Status in Todo List-----------------
 function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
     const action = changeTaskStatusAC(taskID, isDone, todoListsID)
-    dispatchToTasks(action)
+    dispatch(action)
 }
 //---------------change Task Title------------------
 function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: string) {
   const action = changeTaskTitleAC(taskID, editedTitle, todoListsID )
-  dispatchToTasks(action)
+  dispatch(action)
 }
 //---------remove Todo List---------------
   function removeTodoList (todoListsID: string) {
     const action = removeTodoListAC(todoListsID)
-    dispatchToTasks(action)
+  dispatch(action)
 }
 //------------Add New Todo List --------------
   const addTodoList = (title: string) => {
     const action = addTodoListAC(title)
-    dispatchToTodoList(action)
+  dispatch(action)
 }
 //-----------Change Title in Todo List-----------------------------
 const changeTodoListTitle = (todoListsID: string, title: string) => {
     const action = changeTodoListTitleAC(todoListsID, title)
-    dispatchToTodoList(action)
+  dispatch(action)
 }
   return (
     <div className="App">
