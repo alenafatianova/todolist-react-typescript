@@ -45,10 +45,7 @@ export const changeTodoListFilterAC = (filter: FilterValuesType, todolistId: str
 export const todoListsID1 = v1();
 export const todoListsID2 = v1();
 
-const initialState: Array<TodoListType> = [
-    { id: todoListsID1, title: "What to buy", filter: "all" },
-    { id: todoListsID2 , title: "What to learn", filter: "active" }
-]
+const initialState: Array<TodoListType> = []
 
 //-------------------------Todo List Reducer Fn-------------------------------------
 export const todoListReducer = (state: Array<TodoListType> = initialState, action: ActionType) => {

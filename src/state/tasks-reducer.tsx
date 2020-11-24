@@ -32,22 +32,7 @@ export type ActionType = RemoveTasklistActionType | ChangeTaskStatusActionType |
 
                         
 
-const initialTaskType: TasksStateType = {
-    [todoListsID1]: [
-        { id: v1(), title: "HTML", isDone: true },
-        { id: v1(), title: "CSS", isDone: true },
-        { id: v1(), title: "JS", isDone: false },
-        { id: v1(), title: "Redux", isDone: false },
-        { id: v1(), title: "Angular", isDone: true }
-      ], 
-      [todoListsID2]: [
-        { id: v1(), title: "milk", isDone: false },
-        { id: v1(), title: "cat's food", isDone: true },
-        { id: v1(), title: "tea/coffee", isDone: false },
-        { id: v1(), title: "fruits", isDone: true },
-        { id: v1(), title: "cheese", isDone: false },
-      ]
-  }
+const initialTaskType: TasksStateType = {}
 export const tasksReducer = (state: TasksStateType = initialTaskType, action: ActionType): TasksStateType => {
     switch (action.type) {
         

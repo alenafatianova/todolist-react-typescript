@@ -1,14 +1,13 @@
-import React, { useReducer} from "react";
+import React from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import { v1 } from "uuid";
 import { AddItemForm} from "../components/TodoList/AddItemForm";
 import "../App.css";
 import {AppRootStateType} from './store'
 import {TasksStateType, TodoList} from "../components/TodoList/TodoList";
 import {AppBar, Toolbar, IconButton, Typography, Button, Container, Grid, Paper} from '@material-ui/core'
 import {Menu} from '@material-ui/icons'
-import { addTodoListAC, changeTodoListFilterAC, changeTodoListTitleAC, removeTodoListAC, todoListReducer } from "./todolist-reducer";
-import { addTaskAC, removeTaskAC, tasksReducer, changeTaskStatusAC, changeTaskTitleAC } from "./tasks-reducer";
+import { addTodoListAC, changeTodoListFilterAC, changeTodoListTitleAC, removeTodoListAC } from "./todolist-reducer";
+import { addTaskAC, removeTaskAC, changeTaskStatusAC, changeTaskTitleAC } from "./tasks-reducer";
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodoListType = {
