@@ -42,36 +42,44 @@ export const changeTodoListFilterAC = (filter: FilterValuesType, todolistId: str
     return {type: 'CHANGE_TODOLIST_FILTER', filter: filter, id: todolistId}
 }
 
+export const todoListsID1 = v1();
+export const todoListsID2 = v1();
+
+const initialState: Array<TodoListType> = [
+    { id: todoListsID1, title: "What to buy", filter: "all" },
+    { id: todoListsID2 , title: "What to learn", filter: "active" }
+]
+
 //-------------------------Todo List Reducer Fn-------------------------------------
-export const todoListReducer = (state: Array<TodoListType>, action: ActionType) => {
+export const todoListReducer = (state: Array<TodoListType> = initialState, action: ActionType) => {
     switch (action.type) {
         case 'REMOVE_TODOLIST' : 
         return state.filter(tl => tl.id !== action.id);
         
-        case 'ADD_TODOLIST' :
+        case 'ADD_TODOLIST' : {
             const newTodoList: TodoListType = {
                 id: action.todoListId,
                 title: action.title,
                 filter: "all"
             }
             return [...state, newTodoList]
-        
-        case 'CHANGE_TODOLIST_TITLE' : 
+        }
+        case 'CHANGE_TODOLIST_TITLE' : {
             const newTodoListTitle = state.find(tl => tl.id === action.id)
             if (newTodoListTitle) {
                 newTodoListTitle.title = action.title
             }
             return [...state]
-       
-        case 'CHANGE_TODOLIST_FILTER' : 
+        }
+        case 'CHANGE_TODOLIST_FILTER' : {
             const newTodoListFilter = state.find(tl => tl.id === action.id)
             if (newTodoListFilter) {
                 newTodoListFilter.filter = action.filter
             }
             return [...state]
-        
+        }
        default:
-            throw new Error('error')
+            return state;
     }
 
 } 

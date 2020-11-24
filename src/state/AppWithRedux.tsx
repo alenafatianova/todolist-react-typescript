@@ -3,14 +3,7 @@ import { v1 } from "uuid";
 import { AddItemForm} from "../components/TodoList/AddItemForm";
 import "../App.css";
 import {TodoList} from "../components/TodoList/TodoList";
-import {AppBar, 
-  Toolbar, 
-  IconButton, 
-  Typography, 
-  Button, 
-  Container, 
-  Grid,
-  Paper} from '@material-ui/core'
+import {AppBar, Toolbar, IconButton, Typography, Button, Container, Grid, Paper} from '@material-ui/core'
 import {Menu} from '@material-ui/icons'
 import { addTodoListAC, changeTodoListFilterAC, changeTodoListTitleAC, removeTodoListAC, todoListReducer } from "./todolist-reducer";
 import { addTaskAC, removeTaskAC, tasksReducer, changeTaskStatusAC, changeTaskTitleAC } from "./tasks-reducer";
