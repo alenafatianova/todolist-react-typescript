@@ -42,9 +42,6 @@ export const changeTodoListFilterAC = (filter: FilterValuesType, todolistId: str
     return {type: 'CHANGE_TODOLIST_FILTER', filter: filter, id: todolistId}
 }
 
-export const todoListsID1 = v1();
-export const todoListsID2 = v1();
-
 const initialState: Array<TodoListType> = []
 
 //-------------------------Todo List Reducer Fn-------------------------------------
