@@ -18,14 +18,11 @@ export type TodoListType = {
 }
 
 export function AppWithRedux() {
- 
-  const todoListsID1 = v1();
-  const todoListsID2 = v1();
 
   const dispatch = useDispatch();
   const todoLists = useSelector<AppRootStateType, Array<TodoListType>>(state => state.todoLists);
   const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
-  
+
 //-----------delete task from Todo List--------
 function removeTask(taskID: string, todoListsID: string) {
     const action = removeTaskAC(taskID, todoListsID)
