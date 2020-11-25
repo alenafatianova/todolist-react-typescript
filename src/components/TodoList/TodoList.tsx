@@ -1,7 +1,7 @@
-import React, {ChangeEvent} from 'react'
-import { AddItemForm } from './AddItemForm';
-import { FilterValuesType } from '../../App';
-import { EditableSpan } from './EditableSpan';
+import React, {ChangeEvent, useCallback} from 'react'
+import {AddItemForm } from './AddItemForm';
+import {FilterValuesType } from '../../App';
+import {EditableSpan } from './EditableSpan';
 import {Button, IconButton, Checkbox} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 
@@ -55,10 +55,13 @@ export function TodoList(props: PropsType) {
     const onSetAllFilterClick = () => {props.changeFilter("all", props.id)}
     const onSetActiveFilterClick = () => {props.changeFilter("active", props.id)}
     const onSetCompletedFilterClick = () => { props.changeFilter('completed', props.id)}
-    const addTask = (title: string) => {
+    
+    const addTask = useCallback((title: string) => {
         props.addTask(title, props.id)
-    }
+    }, [props])
+    
     const changeTodoListTitle = (title: string) => {props.changeTodoListTitle(props.id, title)}
+    
     return (      
         <div>
         <h3>

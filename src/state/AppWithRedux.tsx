@@ -82,10 +82,10 @@ const changeTodoListTitle = (todoListsID: string, title: string) => {
       <Grid container spacing={4} >
       {
         todoLists.map(tl => {
-        let tasksForTodoList = tasks[tl.id];
+        let tasksForTodoList = tasks[tl.id]
         if (tl.filter === "active") {
           tasksForTodoList = tasks[tl.id].filter((tasks) => tasks.isDone === false);
-        }
+        } 
         if (tl.filter === "completed") {
           tasksForTodoList = tasks[tl.id].filter((tasks) => tasks.isDone === true);
         }
