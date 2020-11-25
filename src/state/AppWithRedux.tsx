@@ -39,15 +39,17 @@ function addTask(newTaskTitle: string, todoListsID: string) {
   }
 
 
-function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
+const changeStatus = useCallback((taskID: string, isDone: boolean, todoListsID: string) => {
     const action = changeTaskStatusAC(taskID, isDone, todoListsID)
     dispatch(action)
-}
+}, [dispatch, changeTaskStatusAC])
+
 
 const changeTaskTitle = useCallback((taskID: string, editedTitle: string, todoListsID: string) => {
   const action = changeTaskTitleAC(taskID, editedTitle, todoListsID )
   dispatch(action)
 }, [dispatch, changeTaskTitleAC])
+
 
   const removeTodoList = useCallback((todoListsID: string) => {
     const action = removeTodoListAC(todoListsID)
