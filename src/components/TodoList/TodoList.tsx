@@ -58,7 +58,7 @@ export function TodoList(props: PropsType) {
     
     const addTask = useCallback((title: string) => {
         props.addTask(title, props.id)
-    }, [props])
+    }, [props.id])
     
     const changeTodoListTitle = useCallback((title: string) => {
         props.changeTodoListTitle(props.id, title)

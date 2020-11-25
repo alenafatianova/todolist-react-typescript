@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import { AddItemForm} from "../components/TodoList/AddItemForm";
 import "../App.css";
@@ -42,22 +42,23 @@ function changeStatus(taskID: string, isDone: boolean, todoListsID: string) {
     const action = changeTaskStatusAC(taskID, isDone, todoListsID)
     dispatch(action)
 }
-//---------------change Task Title------------------
+
 function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: string) {
   const action = changeTaskTitleAC(taskID, editedTitle, todoListsID )
   dispatch(action)
 }
-//---------remove Todo List---------------
+
   function removeTodoList (todoListsID: string) {
     const action = removeTodoListAC(todoListsID)
   dispatch(action)
 }
-//------------Add New Todo List --------------
-  const addTodoList = (title: string) => {
+
+  const addTodoList = useCallback((title: string) => {
     const action = addTodoListAC(title)
   dispatch(action)
-}
-//-----------Change Title in Todo List-----------------------------
+}, []) 
+
+
 const changeTodoListTitle = (todoListsID: string, title: string) => {
     const action = changeTodoListTitleAC(todoListsID, title)
   dispatch(action)
