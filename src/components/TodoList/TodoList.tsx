@@ -62,7 +62,7 @@ export function TodoList(props: PropsType) {
     
     const changeTodoListTitle = useCallback((title: string) => {
         props.changeTodoListTitle(props.id, title)
-    }, [props])
+    }, [props.id, props.changeTodoListTitle])
     
     return (      
         <div>
