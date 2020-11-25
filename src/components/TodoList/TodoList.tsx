@@ -35,8 +35,11 @@ type PropsType = {
 export const TodoList = React.memo((props: PropsType) => {
     
     console.log('todolist is called')
-
-    let tasks = props.tasks.map(task => {
+    
+    let tasksForTodoList = props.tasks
+    
+    tasksForTodoList.map(task => {
+    
     const changeStatus = (e: ChangeEvent<HTMLInputElement>) => {props.changeStatus(task.id, e.currentTarget.checked, props.id)}
     const changeTitle = (editedTitle: string) => {props.changeTaskTitle(task.id, editedTitle, props.id)}
         return (
@@ -73,7 +76,7 @@ export const TodoList = React.memo((props: PropsType) => {
         <IconButton  onClick={removeTodoList}><Delete>X</Delete></IconButton>
         </h3> 
         <AddItemForm addItem={addTask}/>
-        <ul style={{listStyle: "none"}}>{ tasks }</ul>
+        <ul style={{listStyle: "none"}}>{ props.tasks }</ul>
         <div>
             <Button 
                 size={'small'}

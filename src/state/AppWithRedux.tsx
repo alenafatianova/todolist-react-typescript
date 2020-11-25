@@ -10,6 +10,7 @@ import { addTodoListAC, changeTodoListFilterAC, changeTodoListTitleAC, removeTod
 import { addTaskAC, removeTaskAC, changeTaskStatusAC, changeTaskTitleAC } from "./tasks-reducer";
 
 export type FilterValuesType = "all" | "active" | "completed";
+
 export type TodoListType = {
   id: string
   title: string
@@ -19,6 +20,7 @@ export type TodoListType = {
 export function AppWithRedux() {
 
   const dispatch = useDispatch();
+  
   const todoLists = useSelector<AppRootStateType, Array<TodoListType>>(state => state.todoLists);
   const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
 
@@ -27,7 +29,6 @@ const removeTask = useCallback((taskID: string, todoListsID: string) => {
     const action = removeTaskAC(taskID, todoListsID)
     dispatch(action);
 }, [dispatch, removeTaskAC])
-
 
 
 const addTask = useCallback((newTaskTitle: string, todoListsID: string) => {
@@ -89,7 +90,9 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
       <Grid container spacing={4} >
       {
         todoLists.map(tl => {
+        
         let tasksForTodoList = tasks[tl.id]
+        
         if (tl.filter === "active") {
           tasksForTodoList = tasks[tl.id].filter((tasks) => tasks.isDone === false);
         } 
