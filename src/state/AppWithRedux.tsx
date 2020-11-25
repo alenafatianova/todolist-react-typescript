@@ -48,10 +48,10 @@ function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: strin
   dispatch(action)
 }
 
-  function removeTodoList (todoListsID: string) {
+  const removeTodoList = useCallback((todoListsID: string) => {
     const action = removeTodoListAC(todoListsID)
   dispatch(action)
-}
+}, [dispatch, removeTodoListAC])
 
   const addTodoList = useCallback((title: string) => {
     const action = addTodoListAC(title)
