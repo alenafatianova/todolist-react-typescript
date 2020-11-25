@@ -27,11 +27,12 @@ function removeTask(taskID: string, todoListsID: string) {
     const action = removeTaskAC(taskID, todoListsID)
     dispatch(action);
 }
-//----------adding new task to Todo List----------------------
-function addTask(newTaskTitle: string, todoListsID: string) {
+
+
+const addTask = useCallback((newTaskTitle: string, todoListsID: string) => {
   const action = addTaskAC(newTaskTitle, todoListsID)
   dispatch(action)
-}
+}, [dispatch, addTaskAC])
 
 const changeFilter = useCallback((filter: FilterValuesType, todoListsID: string) => {
     const action = changeTodoListFilterAC(filter, todoListsID)
