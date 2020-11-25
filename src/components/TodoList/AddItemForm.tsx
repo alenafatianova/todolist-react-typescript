@@ -7,7 +7,8 @@ type AddItemFormType = {
     addItem: (title: string) => void
 }
 
-export  function AddItemForm(props: AddItemFormType) {
+export const AddItemForm = React.memo((props: AddItemFormType) => {
+   
     
     const [title, setTitle] = useState <string>('')
     let [error, setError] = useState <string | null>() 
@@ -16,7 +17,9 @@ export  function AddItemForm(props: AddItemFormType) {
         setTitle(e.currentTarget.value) 
     }
     const onAddItemkKeyPress = (e: KeyboardEvent <HTMLInputElement>) => {
-        setError(null);
+        if(error !== null) {
+        setError(null)
+    };
         if (e.key === 'Enter') {
             addItemClick()
         }
@@ -28,7 +31,6 @@ export  function AddItemForm(props: AddItemFormType) {
         } else {
             setError('Title is required!')
         }
-        
     }
     
     return (
@@ -53,4 +55,4 @@ export  function AddItemForm(props: AddItemFormType) {
         </div>
         </div>
     )
-}
+})

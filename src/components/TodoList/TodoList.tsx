@@ -1,5 +1,4 @@
 import React, {ChangeEvent} from 'react'
-import style from './TodoList.module.scss'
 import { AddItemForm } from './AddItemForm';
 import { FilterValuesType } from '../../App';
 import { EditableSpan } from './EditableSpan';
