@@ -32,17 +32,17 @@ function addTask(newTaskTitle: string, todoListsID: string) {
   const action = addTaskAC(newTaskTitle, todoListsID)
   dispatch(action)
 }
-//-------------Change Filter in Todo List---------------------
-  function changeFilter(filter: FilterValuesType, todoListsID: string) {
+
+const changeFilter = useCallback((filter: FilterValuesType, todoListsID: string) => {
     const action = changeTodoListFilterAC(filter, todoListsID)
     dispatch(action)
-  }
+}, [dispatch, changeTodoListFilterAC])
 
 
 const changeStatus = useCallback((taskID: string, isDone: boolean, todoListsID: string) => {
     const action = changeTaskStatusAC(taskID, isDone, todoListsID)
     dispatch(action)
-}, [dispatch, changeTaskStatusAC])
+}, [dispatch, changeTaskStatusAC]) 
 
 
 const changeTaskTitle = useCallback((taskID: string, editedTitle: string, todoListsID: string) => {
