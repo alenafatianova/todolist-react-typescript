@@ -32,8 +32,10 @@ type PropsType = {
     changeTodoListTitle: (todoListsID: string, title: string) => void
 };
 
-export function TodoList(props: PropsType) {
-        
+export const TodoList = React.memo((props: PropsType) => {
+    
+    console.log('todolist is called')
+
     let tasks = props.tasks.map(task => {
     const changeStatus = (e: ChangeEvent<HTMLInputElement>) => {props.changeStatus(task.id, e.currentTarget.checked, props.id)}
     const changeTitle = (editedTitle: string) => {props.changeTaskTitle(task.id, editedTitle, props.id)}
@@ -97,6 +99,6 @@ export function TodoList(props: PropsType) {
         </div>
     </div>
     )
-}
+})
 
 export default TodoList;
