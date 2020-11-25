@@ -62,7 +62,7 @@ function changeTaskTitle(taskID: string, editedTitle: string, todoListsID: strin
 const changeTodoListTitle = useCallback((todoListsID: string, title: string) => {
     const action = changeTodoListTitleAC(todoListsID, title)
   dispatch(action)
-}, []) 
+}, [dispatch, changeTodoListTitleAC]) 
 
   return (
     <div className="App">
