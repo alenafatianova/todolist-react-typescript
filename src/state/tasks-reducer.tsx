@@ -66,7 +66,6 @@ export const tasksReducer = (state: TasksStateType = initialTaskType, action: Ac
                if (task) {
                     task.title = action.newTitle
                }
-             
             return stateCopy
         }
         case 'ADD-TASK': {
@@ -94,7 +93,6 @@ export const tasksReducer = (state: TasksStateType = initialTaskType, action: Ac
 export const removeTaskAC = (taskID: string, todoListID: string): RemoveTasklistActionType => {
     return {type: 'REMOVE-TASK', taskID,  todoListID} as const
 }
-
 export const changeTaskStatusAC = (taskID: string, status: boolean, todoListID: string): ChangeTaskStatusActionType => {
     return {type: 'CHANGE-TASK-STATUS', taskID, status, todoListID} as const
 }

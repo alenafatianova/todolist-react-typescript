@@ -20,7 +20,6 @@ export type TodoListType = {
 export function AppWithRedux() {
 
   const dispatch = useDispatch();
-  
   const todoLists = useSelector<AppRootStateType, Array<TodoListType>>(state => state.todoLists);
   const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
 
@@ -89,10 +88,9 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
       </Grid>
       <Grid container spacing={4} >
       {
-      todoLists.map(tl => {
-        
-        let tasksForTodoList = tasks[tl.id]
-        
+        todoLists.map(tl => {
+        let allTodoList = tasks[tl.id]
+        let tasksForTodoList = allTodoList
         
         return (
         <Grid item >
