@@ -36,6 +36,8 @@ type PropsType = {
 
 export const TodoList = React.memo((props: PropsType) => {
     
+    console.log('todolist called')
+
     const removeTodoList = () => {props.removeTodoList(props.id)}
     const onSetAllFilterClick = () => {props.changeFilter("all", props.id)}
     const onSetActiveFilterClick = () => {props.changeFilter("active", props.id)}
@@ -69,6 +71,7 @@ export const TodoList = React.memo((props: PropsType) => {
         <div>
         {tasksForTodoList.map(t => {
                 return <Task 
+                    key={t.id}
                     task={t} 
                     todoListID={props.id}
                     removeTask={props.removeTask}
@@ -137,7 +140,7 @@ const removeTask = useCallback(() =>
             onChange={changeStatus}
             color={'primary'}/>
             <EditableSpan title={props.task.title} changeTitle={changeTitle} />
-            <Button  onClick={() => {props.removeTask(props.task.id, props.todoListID)}}>
+            <Button  onClick={removeTask}>
                 <Delete>X</Delete>
             </Button>
         </li>
