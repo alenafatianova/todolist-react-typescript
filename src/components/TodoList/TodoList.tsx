@@ -66,7 +66,6 @@ export const TodoList = React.memo((props: PropsType) => {
         <IconButton  onClick={removeTodoList}><Delete>X</Delete></IconButton>
         </h3> 
         <AddItemForm addItem={addTask}/>
-        <ul style={{listStyle: "none"}}>{ props.tasks }</ul>
         <div>
         {tasksForTodoList.map(t => {
                 return <Task 
@@ -77,7 +76,7 @@ export const TodoList = React.memo((props: PropsType) => {
                     changeStatus={props.changeStatus}
                     />
         })
-            }
+        }
         </div>
         <div>
             <Button 

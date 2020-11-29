@@ -93,8 +93,8 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
         let tasksForTodoList = allTodoList
         
         return (
-        <Grid item >
-          <Paper elevation={5} style={{padding: "15px"}}>
+        <Grid item key={tl.id}>
+          <Paper elevation={5} style={{padding: "20px"}}>
           <TodoList
             key={tl.id}
             id={tl.id}
@@ -112,10 +112,11 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
           </Paper>
         </Grid>
         );
-      })}
+      })
+      }
       </Grid>
     </Container>
     </div>
   );
 }
-
+export default AppWithRedux;
