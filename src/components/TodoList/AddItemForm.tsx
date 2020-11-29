@@ -7,7 +7,7 @@ type AddItemFormType = {
     addItem: (title: string) => void
 }
 
-export const AddItemForm = React.memo((props: AddItemFormType) => {
+export const AddItemForm = React.memo(function AddItemForm(props: AddItemFormType) {
    
     console.log('AddItem form is called')
     

@@ -34,7 +34,7 @@ type PropsType = {
 }
 
 
-export const TodoList = React.memo((props: PropsType) => {
+export const TodoList = React.memo(function TodoList(props: PropsType)  {
     
     console.log('todolist called')
 
