@@ -31,9 +31,9 @@ const removeTask = useCallback((taskID: string, todoListsID: string) => {
 }, [dispatch, removeTaskAC])
 
 
-const addTask = useCallback((newTaskTitle: string, todoListsID: string) => {
-  const action = addTaskAC(newTaskTitle, todoListsID)
-  dispatch(action)
+const addTask = useCallback((newTaskTitle: string, todoListsID: string) => { 
+    const action = addTaskAC(newTaskTitle, todoListsID)
+    dispatch(action)
 }, [dispatch, addTaskAC])
 
 const changeFilter = useCallback((filter: FilterValuesType, todoListsID: string) => {
@@ -62,7 +62,7 @@ const changeTaskTitle = useCallback((taskID: string, editedTitle: string, todoLi
   const addTodoList = useCallback((title: string) => {
     const action = addTodoListAC(title)
   dispatch(action)
-}, [dispatch, addTodoListAC]) 
+}, [dispatch]) 
 
 
 const changeTodoListTitle = useCallback((todoListsID: string, title: string) => {
@@ -89,16 +89,11 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
       </Grid>
       <Grid container spacing={4} >
       {
-        todoLists.map(tl => {
+      todoLists.map(tl => {
         
         let tasksForTodoList = tasks[tl.id]
         
-        if (tl.filter === "active") {
-          tasksForTodoList = tasks[tl.id].filter((tasks) => tasks.isDone === false);
-        } 
-        if (tl.filter === "completed") {
-          tasksForTodoList = tasks[tl.id].filter((tasks) => tasks.isDone === true);
-        }
+        
         return (
         <Grid item >
           <Paper elevation={5} style={{padding: "15px"}}>
