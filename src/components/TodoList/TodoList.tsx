@@ -39,9 +39,9 @@ export const TodoList = React.memo(function TodoList(props: PropsType)  {
     console.log('todolist called')
 
     const removeTodoList = () => {props.removeTodoList(props.id)}
-    const onSetAllFilterClick = () => {props.changeFilter("all", props.id)}
-    const onSetActiveFilterClick = () => {props.changeFilter("active", props.id)}
-    const onSetCompletedFilterClick = () => { props.changeFilter('completed', props.id)}
+    const onSetAllFilterClick = useCallback(() => props.changeFilter("all", props.id), [props.changeFilter, props.id]) 
+    const onSetActiveFilterClick = useCallback(() => props.changeFilter("active", props.id), [props.changeFilter, props.id])
+    const onSetCompletedFilterClick = useCallback(() => props.changeFilter('completed', props.id), [props.changeFilter, props.id])
     
     const addTask = useCallback((newTaskTitle: string) => {
         props.addTask(newTaskTitle, props.id) 
@@ -64,10 +64,12 @@ export const TodoList = React.memo(function TodoList(props: PropsType)  {
 
     return (      
         <div>
+        <div>
         <h3><EditableSpan title={props.title} changeTitle={changeTodoListTitle} />
         <IconButton  onClick={removeTodoList}><Delete>X</Delete></IconButton>
         </h3> 
         <AddItemForm addItem={addTask}/>
+        </div>
         <div>
         {tasksForTodoList.map(t => {
                 return <Task 
@@ -81,7 +83,7 @@ export const TodoList = React.memo(function TodoList(props: PropsType)  {
         })
         }
         </div>
-        <div>
+        <div style={{paddingTop: '10px'}}>
             <Button 
                 size={'small'}
                 variant={'outlined'}
@@ -116,7 +118,7 @@ export type PropsTaskType = {
     changeStatus: (taskID: string, isDone: boolean, todoListsID: string) => void
 }
 
-const Task = React.memo((props: PropsTaskType) => { 
+export const Task = React.memo((props: PropsTaskType) => { 
     
     const changeTitle = useCallback((editedTitle: string) => {
         props.changeTaskTitle(props.task.id, editedTitle, props.todoListID)

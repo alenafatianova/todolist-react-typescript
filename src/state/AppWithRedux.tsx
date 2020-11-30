@@ -1,13 +1,15 @@
 import React, {useCallback} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import { AddItemForm} from "../components/TodoList/AddItemForm";
-import "../App.css";
+import "./AppWithRedux.module.scss";
 import {AppRootStateType} from './store'
 import {TasksStateType, TodoList} from "../components/TodoList/TodoList";
-import {AppBar, Toolbar, IconButton, Typography, Button, Container, Grid, Paper} from '@material-ui/core'
+import {AppBar, Toolbar, IconButton, Typography, Button, Container, Grid, Paper, withStyles, MuiThemeProvider} from '@material-ui/core'
 import {Menu} from '@material-ui/icons'
 import { addTodoListAC, changeTodoListFilterAC, changeTodoListTitleAC, removeTodoListAC } from "./todolist-reducer";
 import { addTaskAC, removeTaskAC, changeTaskStatusAC, changeTaskTitleAC } from "./tasks-reducer";
+import {createMuiTheme} from '@material-ui/core'
+
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -61,7 +63,7 @@ const changeTaskTitle = useCallback((taskID: string, editedTitle: string, todoLi
   const addTodoList = useCallback((title: string) => {
     const action = addTodoListAC(title)
   dispatch(action)
-}, [dispatch]) 
+}, [dispatch, addTodoListAC]) 
 
 
 const changeTodoListTitle = useCallback((todoListsID: string, title: string) => {
@@ -69,9 +71,11 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
   dispatch(action)
 }, [dispatch, changeTodoListTitleAC]) 
 
+
   return (
     <div className="App">
       <AppBar position="static">
+       
           <Toolbar>
             <IconButton edge="start"  color="inherit" aria-label="menu">
                 <Menu />
@@ -81,14 +85,17 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
               </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>
+           
         </AppBar>
           <Container fixed>
-            <Grid container>
-      <AddItemForm addItem={addTodoList} />
-      </Grid>
+            
+      <AddItemForm addItem={addTodoList}/>
+     
       <Grid container spacing={4} >
+     
       {
         todoLists.map(tl => {
+        
         let allTodoList = tasks[tl.id]
         let tasksForTodoList = allTodoList
         
@@ -112,7 +119,7 @@ const changeTodoListTitle = useCallback((todoListsID: string, title: string) => 
           </Paper>
         </Grid>
         );
-      })
+        })
       }
       </Grid>
     </Container>

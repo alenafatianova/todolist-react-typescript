@@ -7,7 +7,7 @@ type AddItemFormType = {
     addItem: (title: string) => void
 }
 
-export const AddItemForm = React.memo(function AddItemForm(props: AddItemFormType) {
+export const AddItemForm = React.memo((props: AddItemFormType) => {
    
     console.log('AddItem form is called')
     
@@ -20,11 +20,10 @@ export const AddItemForm = React.memo(function AddItemForm(props: AddItemFormTyp
     const onAddItemkKeyPress = (e: KeyboardEvent <HTMLInputElement>) => {
         if (error !== null) {
         setError(null)
-    };
-        if (e.key === 'Enter') {
+    } if (e.key === 'Enter') {
             addItemClick()
         }
-    }
+    } 
     const addItemClick = () =>  {
         if(title.trim()) {
             props.addItem(title.trim()) 
@@ -52,8 +51,9 @@ export const AddItemForm = React.memo(function AddItemForm(props: AddItemFormTyp
                 color={'primary'} 
                 onClick={addItemClick}><AddBox>+</AddBox>
             </Button>
-            { error && <div className={'error-message'}>{error}</div>}
+            {/* //{ error && <div className={'error-message'}>{error}</div>} */}
         </div>
         </div>
     )
-})
+}
+) 
