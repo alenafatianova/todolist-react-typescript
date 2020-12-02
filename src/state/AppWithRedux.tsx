@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import { AddItemForm} from "../components/TodoList/AddItemForm";
+import { AddItemForm} from "../components/TodoList/AddItemForm/AddItemForm";
 import "./AppWithRedux.module.scss";
 import {AppRootStateType} from './store'
 import {TasksStateType, TodoList} from "../components/TodoList/TodoList";
