@@ -3,12 +3,12 @@ import {useDispatch, useSelector} from 'react-redux'
 import { AddItemForm} from "../components/TodoList/AddItemForm/AddItemForm";
 import "./AppWithRedux.module.scss";
 import {AppRootStateType} from './store'
-import {TasksStateType, TodoList} from "../components/TodoList/TodoList";
-import {AppBar, Toolbar, IconButton, Typography, Button, Container, Grid, Paper, withStyles, MuiThemeProvider} from '@material-ui/core'
+import {TasksStateType, TodoList} from "../components/TodoList/Todolist/TodoList";
+import {AppBar, Toolbar, IconButton, Typography, Button, Container, Grid, Paper} from '@material-ui/core'
 import {Menu} from '@material-ui/icons'
 import { addTodoListAC, changeTodoListFilterAC, changeTodoListTitleAC, removeTodoListAC } from "./todolist-reducer";
 import { addTaskAC, removeTaskAC, changeTaskStatusAC, changeTaskTitleAC } from "./tasks-reducer";
-import {createMuiTheme} from '@material-ui/core'
+
 
 
 export type FilterValuesType = "all" | "active" | "completed";

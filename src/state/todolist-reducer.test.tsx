@@ -1,6 +1,6 @@
 import {todoListReducer} from './todolist-reducer'
 import {v1} from 'uuid'
-import {TodoListType} from '../components/TodoList/TodoList'
+import {TodoListType} from '../components/TodoList/Todolist/TodoList'
 import {FilterValuesType} from '../App'
 import {changeTodoListFilterAC,
         removeTodoListAC, 

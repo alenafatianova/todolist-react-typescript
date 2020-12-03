@@ -1,4 +1,4 @@
-import {TasksStateType} from '../components/TodoList/TodoList';
+import {TasksStateType} from '../components/TodoList/Todolist/TodoList';
 import {tasksReducer, removeTaskAC, addTaskAC, changeTaskStatusAC, changeTaskTitleAC} from './tasks-reducer'
 import {addTodoListAC, removeTodoListAC} from './todolist-reducer'
 

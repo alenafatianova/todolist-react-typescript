@@ -6,7 +6,7 @@ import {
   TodoList,
   TaskType,
   TodoListType, TasksStateType
-} from "./components/TodoList/TodoList";
+} from "./components/TodoList/Todolist/TodoList";
 import {AppBar, 
   Toolbar, 
   IconButton, 

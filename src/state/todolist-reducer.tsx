@@ -1,4 +1,4 @@
-import { TodoListType } from "../components/TodoList/TodoList";
+import { TodoListType } from "../components/TodoList/Todolist/TodoList";
 import {v1} from 'uuid'
 import {FilterValuesType} from '../App'
 

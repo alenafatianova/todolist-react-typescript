@@ -11,6 +11,6 @@ export default {
 
 const actionCallback = action('item form was clicked with this value:')
 
-export const AddItemFormStories: Story<AddItemFormProps> = (props: any) => {
+export const AddItemFormStories = () => {
    return  <AddItemForm addItem={actionCallback}/>
-}
+} 
