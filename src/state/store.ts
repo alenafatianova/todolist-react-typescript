@@ -10,8 +10,10 @@ const rootReducer = combineReducers({
 
 //----------создаем store-------------
 export const store = createStore(rootReducer)
+
 //---------определяем автоматом тип всего объекта----------------------------
 export type AppRootStateType = ReturnType<typeof rootReducer>
+
 
 //@ts-ignore
 window.store = store;
