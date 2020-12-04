@@ -20,7 +20,7 @@ export type PropsTaskType = {
 
 export const Task = React.memo((props: PropsTaskType) => { 
     
-    const changeTitle = useCallback((editedTitle: string) => {
+    const changeTaskTitle = useCallback((editedTitle: string) => {
         props.changeTaskTitle(props.task.id, editedTitle, props.todoListID)
     }, [props.task.id, props.changeTaskTitle, props.todoListID])
 
@@ -40,7 +40,7 @@ export const Task = React.memo((props: PropsTaskType) => {
             checked={props.task.isDone}
             onChange={changeStatus}
             color={'primary'}/>
-            <EditableSpan title={props.task.title} changeTitle={changeTitle} />
+            <EditableSpan title={props.task.title} changeTitle={changeTaskTitle} />
             <Button  onClick={removeTask}>
                 <Delete>X</Delete>
             </Button>

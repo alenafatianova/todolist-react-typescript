@@ -1,33 +1,35 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react/types-6-0'
-import { Task } from './Task'
-import {action} from '@storybook/addon-actions'
+import { Task, PropsTaskType } from './Task'
+import { action } from '@storybook/addon-actions'
 
 
 export default {
     title: 'Task Stories',
     component: Task,
+    argTypes: {},
 } as Meta;
 
-const removeTaskCallback = action('removes task from todoList')
-const changeTaskTitleCallback = action('title changed')
-const changeStatusCallback = action('status is changed')
+const Template: Story<PropsTaskType> = (args) => <Task {...args}/>
 
-export const TaskStories = () => {
-    return <>
-        <Task 
-                    task={{id: '1', isDone: true, title: 'CSS'}} 
-                    todoListID={'todoListID2'}
-                    removeTask={removeTaskCallback}
-                    changeTaskTitle={changeTaskTitleCallback}
-                    changeStatus={changeStatusCallback}
-        />
-         <Task 
-                    task={{id: '2', isDone: false, title: 'JS'}} 
-                    todoListID={'todoListID1'}
-                    removeTask={removeTaskCallback}
-                    changeTaskTitle={changeTaskTitleCallback}
-                    changeStatus={changeStatusCallback}
-        />
-    </> 
+const removeTaskCallback = action('Remove task')
+const changeStatusCallback = action('Status changed inside the task')
+const changeTitleCallback = action('Title is changed inside the task')
+
+export const TaskIsDoneExample  = Template.bind({});
+TaskIsDoneExample.args = {
+    task: {id: '1', isDone: false, title: 'CSS'},
+    todoListID: 'todoListID1',
+    removeTask: removeTaskCallback,
+    changeTaskTitle: changeTitleCallback,
+    changeStatus: changeStatusCallback,
 }
+export const TaskIsNotDoneExample  = Template.bind({});
+TaskIsNotDoneExample.args = {
+    task: {id: '1', isDone: true, title: 'JS'},
+    todoListID: 'todoListID2',
+    removeTask: removeTaskCallback,
+    changeTaskTitle: changeTitleCallback,
+    changeStatus: changeStatusCallback,
+}
+       

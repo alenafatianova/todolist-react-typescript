@@ -7,9 +7,9 @@ import {Delete} from '@material-ui/icons'
 import {Task} from '../Task/Task'
 
 export type TaskType = {
-    id: string
     title: string
     isDone: boolean
+    id: string
 };
 export type TasksStateType = {
     [key: string]: Array<TaskType>

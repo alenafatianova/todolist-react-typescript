@@ -32,3 +32,4 @@ export const storyBookStore = createStore(rootReducer, initialGlobalState as App
 export const ReduxStoreProviderDecorator = (story: any) => {
     return <Provider store={storyBookStore}> {story()}</Provider>
 }
+
