@@ -22,7 +22,7 @@ export const App = ({demo = false}: PropsType) => {
 
     useEffect(() => {
         dispatch(initializeAppTC())
-    }, [])
+    }, [dispatch]) 
 
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
     const isInitilized = useSelector<AppRootStateType, boolean>(state => state.app.isInitilized)
